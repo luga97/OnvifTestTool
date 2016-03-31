@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "webpack-dev-server --progress --colors"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GeorgioWan/practice.git"
+  },
   "license": "MIT",
   "author": "GeorgioWan <georgio.wan@icatchinc.com>",
   "dependencies": {

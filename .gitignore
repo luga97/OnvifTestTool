@@ -1,0 +1,8 @@
+.DS_STORE
+node_modules
+*~
+static
+build/
+coverage/
+.module-cache
+*.log*

@@ -6,7 +6,7 @@ var host = process.env.IP || '127.0.0.1';
 module.exports = {
   entry: './client/main.js',
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, '/client/build'),
     filename: 'bundle.js'
   },
   devServer: {
@@ -26,6 +26,15 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test    : /\.scss$/,
+        loaders  : ["style", "css", "sass"]
+      },
+      {
+        test    : /\.json$/,
+        exclude : /node_modules/,
+        loader  : "json"
       }
     ]
   }

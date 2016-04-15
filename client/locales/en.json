@@ -1,0 +1,7 @@
+{
+  "account" : "Account",
+  "password": "Password",
+  "login"   : "Login",
+  "locale"  : "Locale",
+  "cancel"  : "Cancel"
+}

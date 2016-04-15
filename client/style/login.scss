@@ -1,0 +1,23 @@
+
+// LoginBlock
+#login-block{
+  margin : 25vh auto 0 auto;
+  
+  #login-form{
+    padding-bottom: 25px;
+    text-align: center;
+    border-radius: 10px 10px 0 0 !important;
+  }
+}
+
+// LocaleSelector
+#locale-block{
+  color: white;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  
+  #locale-selector{
+    widows: 100px;
+  }
+}

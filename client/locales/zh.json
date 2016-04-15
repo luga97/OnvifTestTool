@@ -1,0 +1,7 @@
+{
+  "account" : "帐号",
+  "password": "密码",
+  "login"   : "登入",
+  "locale"  : "语系",
+  "cancel"  : "取消"
+}

@@ -1,46 +1,8 @@
 // ----- React.js
 import React from 'react';
 // ----- material-ui - css framewrok for React
-import {Paper, TextField, RaisedButton, FlatButton, Dialog, Snackbar,} from 'material-ui';
+import {Paper, TextField, RaisedButton, Snackbar,} from 'material-ui';
 import {_i18n} from '../locales/_i18n';
-
-
-class LoginDialog extends React.Component {
-  // ===== Constructor
-  constructor(props){
-    super(props);
-  }
-  
-  handleClose(){
-    this.props.onCancel();
-  }
-  handleLogin(){
-    this.props.onLogin(this.refs.ipaddress.getValue());
-  }
-  
-  render(){
-    const actions = [
-      <FlatButton label={_i18n.cancel}
-                  onTouchTap={this.handleClose.bind(this)}
-      />,
-      <FlatButton label           = {_i18n.login}
-                  primary         = {true}
-                  keyboardFocused = {true}
-                  onTouchTap      = {this.handleLogin.bind(this)}
-      />,
-    ];
-    
-    return(
-      <Dialog actions = {actions}
-              modal   = {false}
-              open    = {this.props.open}
-              onRequestClose = {this.handleClose.bind(this)}
-      >
-        <TextField floatingLabelText="IP Address" ref="ipaddress" />
-      </Dialog>
-    );
-  }
-}
 
 class LoginBlock extends React.Component {
   // ===== Constructor
@@ -56,25 +18,19 @@ class LoginBlock extends React.Component {
   }
   
   // ===== Handle Event
-  handleOpen(){
+  handleLogin(){
     this.setState({
       email     : this.refs.email.getValue(),
       password  : this.refs.password.getValue(),
+      ipAddress : this.refs.password.getValue(),
+      open      : true,
+      snackOpen : true,
     });
-    
-    this.setState({open: true});
   }
   handleClose(){
     this.setState({
       open      : false,
       snackOpen : false
-    });
-  }
-  handleLogin(ipAddress){
-    this.setState({
-      ipAddress : ipAddress, 
-      open      : false,
-      snackOpen : true,
     });
   }
   
@@ -88,22 +44,18 @@ class LoginBlock extends React.Component {
               <form action="/login" method="post" >
                 <TextField floatingLabelText={_i18n.user} ref="email" />
                 <TextField floatingLabelText={_i18n.pwd} ref="password" type="password" />
+                <TextField floatingLabelText="IP Address" ref="ipaddress" />
               </form>
             </Paper>
             
             <RaisedButton label={_i18n.login}
-              onTouchTap={this.handleOpen.bind(this)}
+              onTouchTap={this.handleLogin.bind(this)}
               secondary={true} 
               fullWidth={true} 
             />
             
           </div>
         </div>
-        
-        <LoginDialog open         = {this.state.open}
-                     onLogin      = {this.handleLogin.bind(this)}
-                     onCancel     = {this.handleClose.bind(this)}
-        />
         
         <Snackbar
           open             = {this.state.snackOpen}

@@ -15,14 +15,17 @@
   "dependencies": {
     "css-loader": "^0.23.1",
     "express": "~4.13.4",
+    "lodash": "^4.11.2",
     "material-ui": "^0.14.4",
     "node-sass": "^3.4.2",
     "react": "^0.14.7",
     "react-cookie": "^0.4.5",
     "react-dom": "^0.14.7",
     "react-intl": "^2.0.1",
+    "react-redux": "^4.4.5",
     "react-router": "^2.0.1",
     "react-tap-event-plugin": "^0.2.2",
+    "redux": "^3.5.2",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1"
   },

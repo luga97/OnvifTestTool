@@ -22,8 +22,9 @@ import {intlFormat} from './intlFormat';
 require("./style/body.scss");
 require("./style/login.scss");
 require("./style/_grid.scss");
+require("./style/setting.scss");
 // --
-
+/*
 ReactDOM.render( 
     <IntlProvider {...intlFormat} >
       <LoginBlock />
@@ -36,4 +37,22 @@ ReactDOM.render(
       <LocaleSelector {...intlFormat} />
     </IntlProvider>,
     document.getElementById('locale-block')
+);
+*/
+import { NetworkInterfacePage } from './containers';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+
+const store = configureStore();
+const unsubscribe = store.subscribe(() => {
+  console.log(store.getState())
+});
+console.log('Initial:', store.getState());
+
+
+ReactDOM.render(
+    <Provider store={store}>
+      <NetworkInterfacePage />
+    </Provider>,
+    document.getElementById('setting-network-interface')
 );

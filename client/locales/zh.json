@@ -1,5 +1,5 @@
 {
-  "account" : "帐号",
+  "username": "用戶名称",
   "password": "密码",
   "login"   : "登入",
   "locale"  : "语系",

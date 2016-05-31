@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Toggle, TextField } from 'material-ui';
+import { TOGGLE_ASAN, TOGGLE_OSAN } from '../../actions/networkInterface';
 
 export default class LinkSettings extends Component{
   constructor(props){
@@ -7,17 +8,17 @@ export default class LinkSettings extends Component{
   }
   
   handleToggle(event, value){
-    if ( this.props.adminOrOper == 'admin' )
-      this.props.toggleASAN(this.props.id, value);
-    else if ( this.props.adminOrOper == 'oper' )
-      this.props.toggleOSAN(this.props.id, value);
+    const { id, actions } = this.props ;
+    actions.toggleEvent(event.target.name, id, value);
   }
   
   render(){
-    const {settings} = this.props;
+    const { adminOrOper, settings} = this.props;
+    const TOGGLE_AN = adminOrOper === "admin" ? TOGGLE_ASAN : TOGGLE_OSAN ;
+    
     return(
       <div>
-        <Toggle name="autonegotation"
+        <Toggle name={TOGGLE_AN}
                 label="AutoNegotation"
                 labelPosition="right"
                 toggled={settings.autonegotation}

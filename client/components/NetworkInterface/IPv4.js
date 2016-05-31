@@ -1,5 +1,6 @@
 import React from 'react';
 import {Toggle, TextField} from 'material-ui';
+import { TOGGLE_IPV4, TOGGLE_IPV4_DHCP } from '../../actions/networkInterface';
 
 export default class IPv4 extends React.Component{
   constructor(props){
@@ -7,23 +8,21 @@ export default class IPv4 extends React.Component{
   }
   
   handleToggle(event, value){
-    if ( event.target.name == 'enable' )
-      this.props.toggleIPv4(this.props.id, value);
-    else if (event.target.name == 'dhcp')
-      this.props.toggleIPv4DHCP(this.props.id, value);
+    const { id, actions } = this.props ;
+    actions.toggleEvent(event.target.name, id, value);
   }
 
   render(){
     const {enable, dhcp, address, prefixlength} = this.props;
     return(
       <div>
-        <Toggle name="enable"
+        <Toggle name={TOGGLE_IPV4}
                 label="Enable"
                 labelPosition="right"
                 toggled={enable}
                 onToggle={this.handleToggle.bind(this)} />
                 
-        <Toggle name="dhcp"
+        <Toggle name={TOGGLE_IPV4_DHCP}
                 label="DHCP"
                 labelPosition="right"
                 toggled={dhcp}

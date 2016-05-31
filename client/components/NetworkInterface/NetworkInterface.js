@@ -1,5 +1,5 @@
 import React from 'react';
-import { Toggle, MenuItem, Paper, TextField, SelectField, Divider} from 'material-ui';
+import { MenuItem, Paper, SelectField, Divider } from 'material-ui';
 import Ethernet from './Ethernet';
 
 export default class NetworkInterface extends React.Component{
@@ -9,10 +9,6 @@ export default class NetworkInterface extends React.Component{
   
   handleChange(event, value){
     this.props.actions.selectEthernet(value);
-  }
-  handleToggle(event, value){
-    if ( event.target.name == 'enable' )
-      this.props.actions.toggleEnable(this.props.id, value);
   }
   
   render() {
@@ -37,7 +33,6 @@ export default class NetworkInterface extends React.Component{
                         actions={actions} />
             </form>
           </Paper>
-          
         </div>
       </div>
     );

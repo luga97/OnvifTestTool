@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // ----- Self Components
-import LoginBlock from './components/LoginBlock';
 import LocaleSelector from './components/LocaleSelector';
 // --
 
@@ -16,7 +15,7 @@ injectTapEventPlugin();
 // ----- Intl for React by react-intl
 import {IntlProvider} from 'react-intl';
 // --
-import {intlFormat} from './intlFormat';
+import {intlFormat} from './locales/config/intlFormat';
 
 // ----- Sass require
 require("./style/body.scss");
@@ -24,13 +23,7 @@ require("./style/login.scss");
 require("./style/_grid.scss");
 require("./style/setting.scss");
 // --
-/*
-ReactDOM.render( 
-    <IntlProvider {...intlFormat} >
-      <LoginBlock />
-    </IntlProvider>,
-    document.getElementById('login-block')
-);
+
 
 ReactDOM.render(
     <IntlProvider {...intlFormat} >
@@ -38,8 +31,8 @@ ReactDOM.render(
     </IntlProvider>,
     document.getElementById('locale-block')
 );
-*/
-import { NetworkInterfacePage } from './containers';
+
+import { NetworkInterfacePage, LoginBlockPage } from './containers';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 
@@ -51,8 +44,21 @@ console.log('Initial:', store.getState());
 
 
 ReactDOM.render(
-    <Provider store={store}>
-      <NetworkInterfacePage />
-    </Provider>,
+    <IntlProvider {...intlFormat} >
+      <Provider store={store}>
+        <LoginBlockPage />
+      </Provider>
+    </IntlProvider>,
+    document.getElementById('login-block')
+);
+
+/*
+ReactDOM.render(
+    <IntlProvider {...intlFormat} >
+      <Provider store={store}>
+        <NetworkInterfacePage />
+      </Provider>
+    </IntlProvider>,
     document.getElementById('setting-network-interface')
 );
+*/

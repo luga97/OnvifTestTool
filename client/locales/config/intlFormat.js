@@ -2,6 +2,7 @@ import messages from './messages';
 import cookie from 'react-cookie';
 // React Intl requires that locale data be loaded and added to the library in order to support a locale. 
 import {addLocaleData} from 'react-intl';
+// Have to load locales from react-intl
 import zh from 'react-intl/locale-data/zh';
 addLocaleData(zh);
 

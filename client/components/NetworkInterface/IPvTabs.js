@@ -15,12 +15,12 @@ export default class IPvTabs extends Component {
         <Tab label="IPv4">
           <IPv4 id={id}
                 {...ipv4} 
-                {...actions} />
+                actions={actions} />
         </Tab>
         <Tab label="IPv6">
           <IPv6 id={id}
                 {...ipv6} 
-                {...actions} />
+                actions={actions} />
         </Tab>
       </Tabs>
     );

@@ -19,14 +19,14 @@ export default class Link extends Component{
           <LinkSettings adminOrOper="admin"
                         id={id}
                         settings={link.adminsettings}
-                        {...actions} />
+                        actions={actions} />
         </fieldset>
         <fieldset>
           <legend>OperSettings</legend>
           <LinkSettings adminOrOper="oper"
                         id={id}
                         settings={link.opersettings}
-                        {...actions} />
+                        actions={actions} />
         </fieldset>
       </div>
     );

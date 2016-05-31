@@ -2,6 +2,7 @@ import React from 'react';
 import { Toggle, MenuItem, Paper, TextField, Divider} from 'material-ui';
 import IPvTabs from './IPvTabs';
 import Link from './Link';
+import { TOGGLE_ENABLE } from '../../actions/networkInterface';
 
 export default class Ethernet extends React.Component{
   constructor(props){
@@ -9,15 +10,15 @@ export default class Ethernet extends React.Component{
   }
   
   handleToggle(event, value){
-    if ( event.target.name == 'enable' )
-      this.props.actions.toggleEnable(this.props.id, value);
+    const { id, actions } = this.props ;
+    actions.toggleEvent(event.target.name, id, value);
   }
   
   render() {
     const {id, ethernet, actions} = this.props;
     return(
       <div>
-          <Toggle name="enable"
+          <Toggle name={TOGGLE_ENABLE}
                   label="Enable"
                   labelPosition="right"
                   toggled={ethernet.enable}

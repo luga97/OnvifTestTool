@@ -1,4 +1,4 @@
-var req = require.context('./locales', true, /\.json.*$/);
+var req = require.context('../', true, /\.json.*$/);
 var exports = {};
 
 req.keys().forEach((file)=>{

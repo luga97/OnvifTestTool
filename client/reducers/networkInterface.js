@@ -86,7 +86,7 @@ export default function networkInterface(state = initState, action) {
                                   );
     case TOGGLE_IPV4_DHCP:
       return changeEthernetContent( state, 
-                                    {ipv4: { dhcp: action.dhcp }}, 
+                                    {ipv4: { dhcp: action.enable }}, 
                                     action
                                   );
     case TOGGLE_IPV6:
@@ -96,15 +96,16 @@ export default function networkInterface(state = initState, action) {
                                   );
     case TOGGLE_IPV6_DHCP:
       return changeEthernetContent( state, 
-                                    {ipv6: { dhcp: action.dhcp }}, 
+                                    {ipv6: { dhcp: action.enable }}, 
                                     action
                                   );
     case TOGGLE_IPV6_ARA:
       return changeEthernetContent( state, 
-                                    {ipv6: { acceptrouteradvert: action.acceptrouteradvert }}, 
+                                    {ipv6: { acceptrouteradvert: action.enable }}, 
                                     action
                                   );
     default:
       return state;
   }
 }
+

@@ -28,4 +28,4 @@
  
 ## License
 
- Copyright © 2016 iCatchinc - MIT License
+ Copyright © 2016 iCatchinc - [MIT License](https://github.com/GeorgioWan/OnvifTestTool/blob/master/License)

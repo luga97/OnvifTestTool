@@ -1,10 +1,8 @@
+// ----- ReactJS
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-// ----- Self Components
-import LocaleSelector from './components/LocaleSelector';
+import {Provider} from 'react-redux';
 // --
-
 // ----- Needed for onTouchTap
 // Can go away when react 1.0 release
 // Check this repo:
@@ -14,51 +12,27 @@ injectTapEventPlugin();
 // --
 // ----- Intl for React by react-intl
 import {IntlProvider} from 'react-intl';
+// ----- Material-UI
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // --
 import {intlFormat} from './locales/config/intlFormat';
+// ----- Self Components
+import { OnvifTestTool } from './containers';
+// --
+import store from './store';
 
 // ----- Sass require
 require("./style/body.scss");
 require("./style/login.scss");
-require("./style/_grid.scss");
-require("./style/setting.scss");
 // --
 
-
 ReactDOM.render(
     <IntlProvider {...intlFormat} >
-      <LocaleSelector {...intlFormat} />
+      <MuiThemeProvider>
+        <Provider store={store}>
+          <OnvifTestTool intlFormat={intlFormat} />
+        </Provider>
+      </MuiThemeProvider>
     </IntlProvider>,
-    document.getElementById('locale-block')
+    document.getElementById('onvif-test-tool')
 );
-
-import { NetworkInterfacePage, LoginBlockPage } from './containers';
-import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
-
-const store = configureStore();
-const unsubscribe = store.subscribe(() => {
-  console.log(store.getState())
-});
-console.log('Initial:', store.getState());
-
-
-ReactDOM.render(
-    <IntlProvider {...intlFormat} >
-      <Provider store={store}>
-        <LoginBlockPage />
-      </Provider>
-    </IntlProvider>,
-    document.getElementById('login-block')
-);
-
-/*
-ReactDOM.render(
-    <IntlProvider {...intlFormat} >
-      <Provider store={store}>
-        <NetworkInterfacePage />
-      </Provider>
-    </IntlProvider>,
-    document.getElementById('setting-network-interface')
-);
-*/

@@ -1,3 +1,4 @@
+//import http from 'http';
 var http = require('http');
 var path = require('path');
 
@@ -10,5 +11,5 @@ router.use(express.static(path.resolve(__dirname, 'client')));
 
 server.listen(process.env.PORT || 8080, process.env.IP || "0.0.0.0", function(){
   var addr = server.address();
-  console.log("Chat server listening at", addr.address + ":" + addr.port);
+  console.log("Server listening at", addr.address + ":" + addr.port);
 });

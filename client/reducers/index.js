@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-import networkInterface from './networkInterface';
-import loginBlock from './loginBlock';
+import camStore from './camStore';
 
 const rootReducer = combineReducers({
-  networkInterface, loginBlock
+  camStore
 });
 
 export default rootReducer;

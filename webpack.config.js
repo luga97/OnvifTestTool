@@ -4,7 +4,7 @@ var port = process.env.PORT || 8080;
 var host = process.env.IP || '127.0.0.1';
 
 module.exports = {
-  entry: './client/main.js',
+  entry: ['./client/main.js'],
   output: {
     path: path.join(__dirname, '/client/build'),
     filename: 'bundle.js'
@@ -22,9 +22,10 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react'],
+          compact: false
         }
       },
       {

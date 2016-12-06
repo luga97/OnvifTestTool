@@ -1,8 +1,9 @@
 
 // LoginBlock
 #login-block{
-  margin : 25vh auto 0 auto;
-  
+  width: 450px;
+  margin : 25vh auto 0;
+
   #login-form{
     padding-bottom: 25px;
     text-align: center;
@@ -12,11 +13,10 @@
 
 // LocaleSelector
 #locale-block{
-  color: white;
   position: absolute;
   bottom: 15px;
   right: 20px;
-  
+
   #locale-selector{
     widows: 100px;
   }

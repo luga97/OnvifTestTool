@@ -4,7 +4,7 @@ import * as binding from "./onvif_bindings";
 
 export default function Run(cmd){
   let obj = new lib.soap_object();
-  obj.host = "192.168.3.123";
+  obj.host = location.host;
   obj.username = "admin";
   obj.password = "admin";
 

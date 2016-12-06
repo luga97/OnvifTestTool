@@ -48,8 +48,7 @@ class LoginBlock extends React.Component {
   // ===== Render Component
   render(){
     return (
-      <div>
-        <h1>5566</h1>
+      <div id='login-block'>
         <Paper id='login-form'>
           <form action="/login" method="post" >
             <TextField ref='username'

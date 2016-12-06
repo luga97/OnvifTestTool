@@ -32,11 +32,11 @@ export default class LocaleSelector extends React.Component{
     ];
 
     const iconBtn = <IconButton tooltip={_i18n.locale} tooltipPosition='top-left'>
-                      <SocialPublic color="white" />
+                      <SocialPublic color="#a83b3b" />
                     </IconButton>;
 
     return(
-      <div>
+      <div id='locale-block'>
         <IconMenu
           iconButtonElement={iconBtn}
           anchorOrigin={{horizontal: 'left', vertical: 'top'}}
